@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
     if (argc != 3) {
         std::cout << "usage : exe obj_in_path crop_info_txt" << std::endl;
-        std::cout << "crop_info_txt: each line contains six elements including output_path, xmin, xmax, ymin, ymax, zmin, zmax" << std::endl;
+        std::cout << "crop_info_txt: each line contains seven elements including output_path, xmin, xmax, ymin, ymax, zmin, zmax" << std::endl;
         return 0;
     }
     char* input = argv[1];

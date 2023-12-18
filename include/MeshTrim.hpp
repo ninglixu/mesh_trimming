@@ -570,6 +570,9 @@ namespace MeshTrim {
 		}
 
 		void write_manual(EigenTriMesh mesh,std::string path) {
+			if (mesh.n_faces() == 0) {
+				return;
+			}
 			std::ofstream ofs(path);
 			Vector3f pts;
 			Vector2f tex;
@@ -593,9 +596,7 @@ namespace MeshTrim {
 				ofs << "f " << v1+1 << " " << v2+1 << " " << v3+1<< "\n";
 			}
 			ofs.close();
-
 		}
-
  };
 
  void MESH_TRIM(std::string input_path, std::vector<std::string> output_path, std::vector<std::vector<float>> bbox_list) {
