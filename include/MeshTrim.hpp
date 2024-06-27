@@ -508,6 +508,7 @@ namespace MeshTrim {
 						fh.push_back(cropped_fv_handles[j - 1]);
 						fh.push_back(cropped_fv_handles[j]);
 						EigenTriMesh::FaceHandle tmp_fh=mesh_out.add_face(fh);
+						if (!tmp_fh.is_valid()) { continue; }
 						EigenTriMesh::HalfedgeHandle heh=mesh_out.halfedge_handle(tmp_fh);
 						mesh_out.set_texcoord2D(heh, cropped_fv_vts[0]);
 						heh = mesh_out.next_halfedge_handle(heh);
@@ -525,6 +526,9 @@ namespace MeshTrim {
 		}
 
 		void write_manual_tex(EigenTriMesh& mesh, std::string in_path, std::string path, bool copy_texture) {
+			if (mesh.n_faces() == 0) {
+				return;
+			}
 			bool useMatrial = false;
 			OpenMesh::MPropHandleT< std::map< int, std::string > > texindex_out;
 			std::vector<int> crop_texindex_ids;
