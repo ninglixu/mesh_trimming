@@ -6,16 +6,16 @@
 
 int main(int argc, char* argv[])
 {
-    if (argc != 3) {
-        std::cout << "usage : exe obj_in_path crop_info_txt" << std::endl;
+    if (argc != 4) {
+        std::cout << "usage : exe obj_in_path crop_info_txt keep_aoi[0: keep outside part, 1:keep inside part]" << std::endl;
         std::cout << "crop_info_txt: each line contains seven elements including output_path, xmin, xmax, ymin, ymax, zmin, zmax" << std::endl;
         return 0;
     }
     char* input = argv[1];
     char* crop_info_path = argv[2];
-
+    int keep_aoi = atoi(argv[3]);
+    
     std::string input_path(input);
-
     std::vector<std::vector<float>> crop_list;
     std::vector<std::string> crop_out_list;
     std::ifstream ifs(crop_info_path);
@@ -53,6 +53,6 @@ int main(int argc, char* argv[])
     }
     ifs.close();
 
-    MeshTrim::MESH_TRIM(input_path, crop_out_list, crop_list);
+    MeshTrim::MESH_TRIM(input_path, crop_out_list, crop_list,keep_aoi);
     
 }
