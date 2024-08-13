@@ -3,7 +3,7 @@
 ## Introduction
 We are releasing our mesh editing tool as open-source software to facilitate efficient mesh trimming. Unlike existing tools like CloudCompare and Open3D, which simply remove triangles outside or inside AOi, leading a rough boundary, our tool takes a more precise approach. It carefully splits triangles that intersect with the AOI into smaller sub-triangles, ensuring a smooth clipping boundary. 
 
-* Support cropping and keep the inside part or outside part mesh.
+* Support keeping the inside part or outside part mesh.
 * Support multiple cropping at the same time. 
 * Time complexity: O(N+k), where N is the number of triangles within the mesh and k is the number of triangles intersecting with the AOI.
 * AOI format: rectangle. 
