@@ -20,18 +20,11 @@ crop_info_txt: each line contains seven elements including output_path, xmin, xm
 ### Mesh Visualization
 ![alt text](./demo/illustration.png)
 
-### Compare to CloudCompare
+### Comparision to CloudCompare
 ![alt text](./demo/compare.png)
 
-### Topology visualization
-
-![alt text](./demo/top-1.png)
-
-(a) Original topology
-
-![alt text](./demo/top-2.png)
-
-(b) Cropped topology
+### Detailed view
+![alt text](./demo/detail_compare.png)
 
 ## Process
 ![alt text](./demo/pipeline.png)
