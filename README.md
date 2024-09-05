@@ -18,19 +18,13 @@ crop_info_txt: each line contains seven elements including output_path, xmin, xm
 
 ## Results
 ### Mesh Visualization
-![alt text](./demo/ill1.png)
+![alt text](./demo/illustration.png)
 
-(a) Original mesh
+### Compare to CloudCompare
+![alt text](./demo/compare.png)
 
-![alt text](./demo/ill_in.png)
+### Topology visualization
 
-(b) Mesh part inside the AOI
-
-![alt text](./demo/ill_out.png)
-
-(c) Mesh part outside the AOI
-
-## Topology visualization
 ![alt text](./demo/top-1.png)
 
 (a) Original topology
