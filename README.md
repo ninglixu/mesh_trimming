@@ -10,7 +10,7 @@ We are releasing our mesh editing tool as open-source software to facilitate eff
 
 ## Usage
 ```
-Trimming.exe aoi_info.txt keep_aoi[0: keep inside part, 1:keep outside part]
+Trimming.exe aoi_info.txt keep_aoi[0: keep outside part, 1:keep inside part]
 
 crop_info_txt: each line contains seven elements including output_path, xmin, xmax, ymin, ymax, zmin, zmax
 ```
