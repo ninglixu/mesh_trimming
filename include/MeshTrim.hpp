@@ -627,6 +627,15 @@ return 0: inside, 1: intersect, 2: outside
 				triangulation_vts.push_back({ inside,e31,faceinter.vt1 });
 				triangulation_vts.push_back({ inside,faceinter.vt1, e12 });
 			}
+			else if (faceinter.v1_inside && faceinter.v3_inside) {
+				triangulation.push_back({ faceinter.e12_pts[0], faceinter.v2, faceinter.inside_pts[0] });
+				triangulation.push_back({ faceinter.inside_pts[0],faceinter.v2,faceinter.e23_pts[0] });
+				Eigen::Vector2f inside = calculateUV(faceinter.inside_pts[0], faceinter.v1, faceinter.vt1, faceinter.v2, faceinter.vt2, faceinter.v3, faceinter.vt3);
+				Eigen::Vector2f e23 = calculateUV(faceinter.e23_pts[0], faceinter.v1, faceinter.vt1, faceinter.v2, faceinter.vt2, faceinter.v3, faceinter.vt3);
+				Eigen::Vector2f e12 = calculateUV(faceinter.e12_pts[0], faceinter.v1, faceinter.vt1, faceinter.v2, faceinter.vt2, faceinter.v3, faceinter.vt3);
+				triangulation_vts.push_back({ e12,faceinter.vt2,inside });
+				triangulation_vts.push_back({ inside,faceinter.vt2, e23 });
+			}
 		}
 		else if (faceinter.type == 5) {
 			if (faceinter.e12_pts.size()==2) {
@@ -1425,7 +1434,7 @@ return 0: inside, 1: intersect, 2: outside
 				}
 				// Crop intersection face and add to the mesh_out
 				for (auto faceinter : intersect_fs) {
-					if (faceinter.fid == 48) {
+					if (faceinter.fid == 65) {
 						int a = 1;
 					}
 					std::vector<std::vector<Eigen::Vector3f>> triangulation;
